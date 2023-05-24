@@ -1,6 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html class="client-nojs" lang="ja" dir="ltr">
   <head>
+  <nav>
+    <ul>
+    <li><%= link_to 'フィード一覧', feeds_path %></li>
+    <li><%= link_to '新規フィード作成', new_feed_path %></li>
+    </ul>
+   </nav>
     <title>FacebookClone</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -10,7 +16,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="page-background">
   <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
   <% end %>
@@ -22,7 +28,11 @@
   <%= link_to "Sign up", new_user_path %>
   <%= link_to "Login", new_session_path %>
 <% end %>
-
+<div class="edfg">
+  <div>アプリを始めよう!</div>
+</div>
+<footer id="footer"></footer>
+<button class="custom-button">ボタン</button>
   <%= yield %>
   </body>
 </html>

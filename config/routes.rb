@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "home/top" => "home#top"
   resources :feeds do
     collection do
       post :confirm
