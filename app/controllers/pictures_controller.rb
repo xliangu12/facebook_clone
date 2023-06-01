@@ -1,21 +1,22 @@
 class PicturesController < ApplicationController
+  # before_action :set_picture, only: [:show, :edit, :update, :destroy]
   def new
     @picture = Picture.new
   end
 
   def create
-    @picture = Picture.new(picture_params)
-
+    @picture = current_user.pictures.build(picture_params)
     if @picture.save
-      redirect_to @picture
+      redirect_to @picture, notice: 'Picture was successfully created.'
     else
-      render 'new'
+      render :new
     end
   end
 
   def show
     @picture = Picture.find(params[:id])
-  end
+    render 'show'
+    end
 
   def index
     @pictures = Picture.all
